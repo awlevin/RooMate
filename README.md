@@ -47,6 +47,12 @@ yarn start
 
 Then `yarn ios`, `yarn android`, or `yarn web`, or scan the QR code with Expo Go.
 
+`firebaseConfig.ts` holds a Firebase **web** client config. Those values are public by
+design: Firebase ships them in every client bundle, and they identify a project rather
+than authorise access. Access is controlled by Firebase Auth and by the project's
+Firestore security rules, which are not part of this repository. To point the app at
+your own project, replace the object in `firebaseConfig.ts`.
+
 ## Layout
 
 - `App.tsx` — wraps the app in `AuthProvider` and the safe-area provider.
@@ -55,3 +61,7 @@ Then `yarn ios`, `yarn android`, or `yarn web`, or scan the QR code with Expo Go
 - `navigation/` — `AppNavigator.tsx` picks login or app based on auth state; `MainTabNavigator.tsx` is the bottom tab bar.
 - `components/` — `LoginScreen`, `CreateGroup`, `JoinGroup`, `GroupList`.
 - `theme.ts` — the `@rneui` colour theme.
+
+## Licence
+
+MIT. See [LICENSE](LICENSE).
